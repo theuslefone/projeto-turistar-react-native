@@ -10,7 +10,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //Componentes e funções
 import StackScreen from './src/StackScreen';
 
-
 export default function App() {
   return (
     <NavigationContainer>
