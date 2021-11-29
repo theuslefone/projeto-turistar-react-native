@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 // Importações não nativas
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 //Componentes e funções
 import StackScreen from './src/StackScreen';
@@ -13,7 +13,10 @@ import StackScreen from './src/StackScreen';
 export default function App() {
   return (
     <NavigationContainer>
-      <StackScreen/>
+      <PaperProvider  theme={theme}> 
+        <StatusBar style="auto" />   
+        <StackScreen/>
+      </PaperProvider>
     </NavigationContainer>
 
   );
@@ -27,7 +30,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-<View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#04026B',
+    accent: 'white',
+  },
+};
