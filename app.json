@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "turistar",
+    "slug": "turistar",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "turistar"
+}
