@@ -6,7 +6,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "start": "nodemon service/Heroku.js"
+    "start": "react-native start"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.0.9",
@@ -16,6 +16,7 @@
     "axios": "^0.24.0",
     "cors": "^2.8.5",
     "expo": "~43.0.2",
+    "expo-location": "~13.0.4",
     "expo-splash-screen": "~0.13.5",
     "expo-status-bar": "~1.1.0",
     "expo-updates": "~0.10.13",
