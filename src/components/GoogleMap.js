@@ -7,20 +7,24 @@ import * as Location from 'expo-location';
 
 export default function GoogleMap() {
 
-  
+
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
-        return;
+      if (status === 'granted') {
+        let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
+        setOrigin({
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+          latitudeDelta: 0.00922,
+          longitudeDelta: 0.00421,
+        })
+      }else{
+        throw new Error('Permission to access location was denied');
       }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setOrigin(location);
     })();
   }, []);
 
@@ -28,12 +32,8 @@ export default function GoogleMap() {
     <View style={styles.container}>
       <MapView 
       style={styles.map} 
-      initialRegion={{
-      latitude: -8.06155156939535,
-      longitude:  -34.87054089901404,
-      latitudeDelta: 0.00922,
-      longitudeDelta: 0.00421,
-    }}
+      initialRegion={origin}
+      showsUserLocation = {true}
       />
 
     </View>
