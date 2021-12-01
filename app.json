@@ -2,14 +2,17 @@
   "expo": {
     "name": "turistar",
     "slug": "turistar",
-    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/logo.png",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
     "splash": {
       "image": "./assets/splash.png",
-      "backgroundColor": "#04026B"
+      "backgroundColor": "#04026B",
+      "resizeMode": "cover"
     },
     "android": {
       "adaptiveIcon": {
