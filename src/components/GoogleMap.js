@@ -1,9 +1,9 @@
 import React,  { useState, useEffect } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 
-import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
+
 
 export default function GoogleMap() {
 
@@ -35,7 +35,6 @@ export default function GoogleMap() {
       initialRegion={origin}
       showsUserLocation = {true}
       />
-
     </View>
   );
 }
