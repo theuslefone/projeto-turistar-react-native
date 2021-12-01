@@ -1,9 +1,29 @@
-import * as React from 'react';
+import React,  { useState, useEffect } from 'react';
 import MapView from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
 
 export default function GoogleMap() {
+
+  
+  const [origin, setOrigin] = useState(null);
+  const [destination, setDestination] = useState(null);
+  
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setOrigin(location);
+    })();
+  }, []);
+
   return (
     <View style={styles.container}>
       <MapView 
