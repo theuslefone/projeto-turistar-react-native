@@ -12,12 +12,6 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "adaptativeIcon": "./assets/adaptive-icon.png",
-      "backgroundColor": "#04026B"
-      }
     }
   },
   "name": "turistar"
