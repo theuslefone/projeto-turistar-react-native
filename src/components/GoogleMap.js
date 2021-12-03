@@ -4,7 +4,7 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
 import MapViewDirections from "react-native-maps-directions";
-import { googleAPI } from "../../config/config";
+import { googleAPI } from "../../config";
 
 
 export default function GoogleMap() {
