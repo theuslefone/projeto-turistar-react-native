@@ -5,6 +5,7 @@ import GoogleMap from '../components/GoogleMap';
 export default function Cultura() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <GoogleMap/>
       </View>
     );
   }
