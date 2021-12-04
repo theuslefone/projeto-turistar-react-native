@@ -34,7 +34,7 @@ export default function Culinaria() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <GoogleMap
-            waypoints = {data}
+            waypoints = {waypoints}
             destination = {'Recife'}
           />
       </View>

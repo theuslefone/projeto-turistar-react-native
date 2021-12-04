@@ -34,6 +34,15 @@ export default function GoogleMap(props) {
   }, []);
 
 
+ const rota1 = [
+   'Marco Zero',
+   'Praça do Arsenal',
+   'Torre Malakof',
+   'cais da lingueta',
+   'Porto do Recife'
+ ]
+
+
 
 
   if( props == undefined ){
@@ -46,7 +55,7 @@ export default function GoogleMap(props) {
         lineDashPattern={[0]}
         origin={origin}
         destination= {props.destination}
-       
+        waypoints = {rota1}
         mode = {'WALKING'}
         apikey={googleAPI}
         strokeWidth={3}
