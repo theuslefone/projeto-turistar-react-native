@@ -7,35 +7,16 @@ import { api } from '../../service/Heroku';
 export default function Culinaria() {
 
     const [data, setData] = useState([]);
-    const [waypoints, setWaypoints] = useState([]);
+    const [waypoints, setWaypoints] = useState(undefined);
+    const [destination, setDestination] = useState(undefined);
 
     
-    const getCulinaria = async () =>{
-      try {
-        const response = await fetch(`${api}/rotas`);
-        let json = await response.json();
-        const rotas = json
-        setData(rotas)
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    useEffect(() => {
-      getCulinaria()
-      routeDefine()
-    }, []);
-
-
-    function routeDefine(){
-      setWaypoints(data)
-    }
-
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <GoogleMap
             waypoints = {waypoints}
-            destination = {'Recife'}
+            destination = {destination}
           />
       </View>
     );

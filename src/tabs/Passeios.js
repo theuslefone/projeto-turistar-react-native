@@ -1,12 +1,21 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import GoogleMap from '../components/GoogleMap';
 
 export default function Passeios() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <GoogleMap/>
-      </View>
-    );
+  const [data, setData] = useState([]);
+  const [waypoints, setWaypoints] = useState([]);
+  const [destination, setDestination] = useState('');
+
+  
+
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <GoogleMap
+          waypoints = {waypoints}
+          destination = {destination}
+        />
+    </View>
+  );
   }
