@@ -6,7 +6,7 @@ import {Marker} from "react-native-maps";
 import * as Location from "expo-location";
 
 import MapViewDirections from "react-native-maps-directions";
-import { googleAPI } from "../../config";
+import { googleAPI } from "../../config/config";
 
 import { caisDaLingueta, casaraoMarcoZero, coracaoDoNordeste, estatuaChicoScience, forteDoBrum, leaoDoMestreNuca, marcoZero, praçaDoArsenal,
    ruaBomJesus, torreMalakoff } from "../routes/QrcodePoints";
@@ -37,45 +37,25 @@ export default function GoogleMap(props) {
   }, []);
 
 
- const rota1 = [
-   'Marco Zero',
-   'Praça do Arsenal',
-   'Torre Malakof',
-   'cais da lingueta',
-   'Porto do Recife'
- ]
 
-
-
-
-  if( props == undefined ){
-    <MapView style={styles.map} initialRegion={origin} showsUserLocation={true}/>
-    
-  } else return (
+  return (
     <MapView style={styles.map} initialRegion={origin} showsUserLocation={true}>
 
-        <MapViewDirections
-        lineDashPattern={[0]}
-        origin={origin}
-        destination= {props.destination}
-        waypoints = {rota1}
-        mode = {'WALKING'}
-        apikey={googleAPI}
-        strokeWidth={3}
-        strokeColor = "#04026B"
+      <MapViewDirections
+          lineDashPattern={[0]}
+          origin={origin}
+          destination = {props.destination}
+          waypoints={props.waypoints}
+          mode = {'WALKING'}
+          apikey={googleAPI}
+          strokeWidth={6}
+          strokeColor = "#04026B"
+          precision="low"
+          timePrecision = 'now'
       />
 
-    <Marker coordinate={marcoZero}/>
-    <Marker coordinate={praçaDoArsenal}/>
-    <Marker coordinate={torreMalakoff}/>
-    <Marker coordinate={casaraoMarcoZero}/>
-    <Marker coordinate={ruaBomJesus}/>
-    <Marker coordinate={leaoDoMestreNuca}/>
-    <Marker coordinate={caisDaLingueta}/>
-    <Marker coordinate={estatuaChicoScience}/>
-    <Marker coordinate={forteDoBrum}/>
-    <Marker coordinate={coracaoDoNordeste}/>
-
+      <Marker coordinate={marcoZero} tappable= {true} />
+      
     </MapView>
   );
 }
@@ -89,6 +69,6 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    height: 400
   },
 });
