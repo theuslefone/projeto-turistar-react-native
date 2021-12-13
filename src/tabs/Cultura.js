@@ -5,7 +5,6 @@ import { api } from '../../service/Heroku';
 
 
 import Footer from '../components/Footer';
-import LocalCard from '../components/LocalCard';
 
 
 
@@ -65,7 +64,6 @@ export default function Cultura() {
       <View style={{ grid: 3, alignItems: 'center', justifyContent: 'center' }}>
            <GoogleMap/>
            <Footer/>
-           <LocalCard/>
 
       </View>
     )
