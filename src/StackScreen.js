@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import LogoTitle from '../src/components/LogoTitle'
+import LogoTitle from '../src/components/LogoTitle';
 
 
 const Stack = createNativeStackNavigator();
