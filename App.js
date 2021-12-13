@@ -9,6 +9,7 @@ import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 //Componentes e funções
 import StackScreen from './src/StackScreen';
+import QrCode from './src/components/QrCode';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <StatusBar style="auto" />   
         <StackScreen/>
       </PaperProvider>
+      <QrCode/>
     </NavigationContainer>
 
   );
