@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { StyleSheet, View, Dimensions, Text, Alert, Modal, Pressable, Image, Button} from "react-native";
 
-import MapView from "react-native-maps";
-import {Marker} from "react-native-maps";
+import MapView, { Callout, Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
 import MapViewDirections from "react-native-maps-directions";
-import { googleAPI } from "../../config/config";
+import { googleAPI } from "../../config.js";
 
 import { caisDaLingueta, casaraoMarcoZero, coracaoDoNordeste, estatuaChicoScience, forteDoBrum, leaoDoMestreNuca, marcoZero, praçaDoArsenal,
    ruaBomJesus, torreMalakoff } from "../routes/QrcodePoints";
-
 
 export default function GoogleMap(props) {
 
@@ -54,7 +52,15 @@ export default function GoogleMap(props) {
           timePrecision = 'now'
       />
 
-      <Marker coordinate={marcoZero} tappable= {true} />
+      <Marker coordinate={marcoZero} tappable= {true}>
+      <Callout style={styles.locationButtonCallout}>
+            <View style={styles.modal}>
+           <Text> Marco Zero</Text>
+           <Image style={{width: 200, height: 140}}
+              source={require('./marcoZero.jpeg')}/>
+           </View> 
+        </Callout>
+      </Marker>
       
     </MapView>
   );
@@ -70,5 +76,13 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get("window").width,
     height: 400
+  },
+  modal: {
+    backgroundColor: "#fff",
+  },
+  locationButtonCallout: {
+    borderRadius: 0,
+    opacity: 0.8,
+    backgroundColor: "lightgrey",
   },
 });
