@@ -56,8 +56,12 @@ export default function GoogleMap(props) {
       <Callout style={styles.locationButtonCallout}>
             <View style={styles.modal}>
            <Text> Marco Zero</Text>
-           <Image style={{width: 200, height: 140}}
-              source={require('./marcoZero.jpeg')}/>
+           {/* <Image style={{width: 200, height: 140}}
+              source={require('./marcoZero.jpeg')}/> */}
+              <Text> Rota 1</Text>
+              <Text> Rota 2</Text>
+              <Text> Rota 3</Text>
+              <Text> Rota 4</Text>
            </View> 
         </Callout>
       </Marker>
