@@ -6,6 +6,7 @@ import * as Location from "expo-location";
 
 import MapViewDirections from "react-native-maps-directions";
 import { googleAPI } from "../../config.js";
+import  Pin  from "./Pin.js";
 
 import { caisDaLingueta, casaraoMarcoZero, coracaoDoNordeste, estatuaChicoScience, forteDoBrum, leaoDoMestreNuca, marcoZero, praçaDoArsenal,
    ruaBomJesus, torreMalakoff } from "../routes/QrcodePoints";
@@ -52,19 +53,7 @@ export default function GoogleMap(props) {
           timePrecision = 'now'
       />
 
-      <Marker coordinate={marcoZero} tappable= {true}>
-      <Callout style={styles.locationButtonCallout}>
-            <View style={styles.modal}>
-           <Text> Marco Zero</Text>
-           {/* <Image style={{width: 200, height: 140}}
-              source={require('./marcoZero.jpeg')}/> */}
-              <Text> Rota 1</Text>
-              <Text> Rota 2</Text>
-              <Text> Rota 3</Text>
-              <Text> Rota 4</Text>
-           </View> 
-        </Callout>
-      </Marker>
+      <Pin coordinate={marcoZero}/>
       
     </MapView>
   );
@@ -80,13 +69,5 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get("window").width,
     height: 400
-  },
-  modal: {
-    backgroundColor: "#fff",
-  },
-  locationButtonCallout: {
-    borderRadius: 0,
-    opacity: 0.8,
-    backgroundColor: "lightgrey",
   },
 });
