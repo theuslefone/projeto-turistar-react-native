@@ -4,6 +4,11 @@ import GoogleMap from '../components/GoogleMap';
 import { api } from '../../service/Heroku';
 
 
+import Footer from '../components/Footer';
+import LocalCard from '../components/LocalCard';
+
+
+
 export default function Cultura() {
   
   const [data, setData] = useState([]);
@@ -57,40 +62,16 @@ export default function Cultura() {
   
   if(status == false){
     return(
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-
-      <GoogleMap/>
-     
-         <Button
-         title= 'Ponte Giratoria'
-         onPress={rotaPteGiraotiraMarcoZero} 
-         /> 
-          <Button
-         title= 'Ponte Buarque de Macedo'
-         onPress={rotaPteBuarquedeMacedo} 
-         />
-         <Button
-         title= 'Ponte Maurício de Nassau'
-         onPress={rotaPteMauríciodeNassau} 
-         />
-         <Button
-         title= 'Ponte Giratória'
-         onPress={rotaPtePonteGiratoria} 
-         />
+      <View style={{ grid: 3, alignItems: 'center', justifyContent: 'center' }}>
+           <GoogleMap/>
+           <Footer/>
+           <LocalCard/>
 
       </View>
     )
   } else return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-       <GoogleMap
-          destination={destination}
-          waypoints={waypoints}
-          
-        />s
-          <Button
-          title= 'Cancel'
-          onPress={cancel}
-        />
+    <View style={{ grid: 1, alignItems: 'center', justifyContent: 'center' }}>
+       
     </View>
   );
   }
